@@ -1,0 +1,49 @@
+CIELO RADIO 1.0
+© 2026 Edoardo Battistel
+
+Il cielo sopra casa, adesso, come lo vedrebbe un occhio radio, dalla frequenza di 10 MHz
+(onde di 30 m) fino a 94 GHz (3 mm), con lo stesso orizzonte e le stesse costellazioni della
+vista a occhio nudo. In più: il cielo radio in diretta delle stazioni LWA del New Mexico.
+
+AVVIO
+  Dall'icona «Cielo radio» (Scrivania o menu), oppure:
+    ~/Claude/Astropy/venv_compila/bin/python cielo_radio.py
+  (serve il Python del venv perché la prima volta il modello si legge con h5py).
+  Autotest:  CieloRadio --autotest   ->  ~/Scrivania/Astronomia/Cielo_radio/autotest.txt
+
+LA PRIMA VOLTA
+  Il programma scarica da Zenodo il modello GSM2008 (82 MB, qualche minuto) e da SkyView la
+  mappa della Via Lattea in luce visibile (circa un minuto). Il modello LFSM (24 MB) solo se lo
+  scegli. Stelle e costellazioni vengono copiate da Cielo di Einstein, se c'è. Un download
+  interrotto riprende da dove si era fermato.
+
+DOVE STANNO I DATI
+  ~/Scrivania/Astronomia/Cielo_radio/dati       modelli (.h5 scaricati e copie .npy veloci)
+  ~/Scrivania/Astronomia/Cielo_radio/cache      Via Lattea visibile, stelle, Sole (NOAA)
+  ~/Scrivania/Astronomia/Cielo_radio/immagini   PNG e video MP4 che salvi
+  ~/.cielo_radio.json                           impostazioni (luogo, frequenza, testo...)
+
+COSA SI VEDE
+  - Cupola: tutto il cielo guardando in alto (Nord in alto, Est a sinistra); proiezione
+    equidistante o ortografica (quella delle immagini di LWA TV). Panorama: l'orizzonte intorno.
+  - Occhio radio: temperatura di brillanza del cielo (K, scala logaritmica) dal modello GSM2008
+    (de Oliveira-Costa et al. 2008) o LFSM (Dowell et al. 2017). Sole e Luna sono aggiunti con la
+    risoluzione del modello (~1°): il Sole con il flusso misurato oggi dalla rete RSTN (NOAA),
+    la Luna come corpo a 220 K (a bassa frequenza è un'ombra sulla Via Lattea).
+  - Occhio nudo: Via Lattea di A. Mellinger, stelle d3-celestial, luce del giorno e crepuscolo.
+  - Sorgenti radio famose (cerchi verdi), Sole, Luna e pianeti: clic per la scheda; dalla scheda,
+    ritagli radio di SkyView (NVSS, TGSS, VLSSr, HI4PI).
+  - Tempo: adesso, avanti/indietro, una data qualsiasi, «una notte in un minuto».
+  - Video MP4 (ffmpeg): 12 ore di cielo, oppure tutte le frequenze da 10 MHz a 94 GHz.
+  - LWA TV: l'immagine in diretta (aggiornata ogni 15 s) e «Confronta», che disegna il modello
+    come lo vede LWA1 adesso a 38 MHz.
+
+NOTE
+  - Il modello contiene il cielo diffuso della Galassia (e le sorgenti più forti fuse nella
+    risoluzione di 1°); non contiene il fondo cosmico a 2,7 K.
+  - Le posizioni di Sole, Luna e pianeti sono calcolate dal programma (precisione ~1'), il
+    tempo siderale e la precessione pure: niente astropy. Rifrazione atmosferica non inclusa.
+  - Il New Mexico è circa 8 ore «dietro» Padova: quello che LWA vede allo zenit adesso, Padova
+    l'ha avuto allo zenit circa 8 ore fa.
+  - Fonti: GSM2008/LFSM (dati del pacchetto pygdsm, Zenodo 3835582), NASA SkyView, d3-celestial
+    (O. Frohn), NOAA SWPC, LWA TV (University of New Mexico).

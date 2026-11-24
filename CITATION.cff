@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below, and credit the data providers listed in README.md."
+title: "Radio Sky (Cielo radio): the sky above you right now, as seen by a radio eye from 10 MHz to 94 GHz"
+authors:
+  - family-names: Battistel
+    given-names: Edoardo
+version: "1.0"
+date-released: 2026-11-20
+license: BSD-3-Clause
+repository-code: "https://github.com/EDOKILLER/radio-sky"
+keywords:
+  - radio astronomy
+  - global sky model
+  - GSM2008
+  - LWA
+  - planetarium
